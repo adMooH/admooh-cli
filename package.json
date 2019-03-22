@@ -25,12 +25,18 @@
     "clear": "^0.1.0",
     "clui": "^0.3.6",
     "figlet": "^1.2.1",
+    "fs-extra": "^7.0.1",
     "inquirer": "^6.2.2",
     "is-valid-path": "^0.1.1",
     "minimist": "^1.2.0",
-    "touch": "^3.1.0"
+    "node-fetch": "^2.3.0",
+    "rimraf": "^2.6.3",
+    "touch": "^3.1.0",
+    "unzip": "^0.1.11",
+    "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
+    "@types/inquirer": "0.0.44",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.4000",
     "webpack": "^4.29.6",
