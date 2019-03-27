@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 import FileUtils from '../utils/file-utils';
-import isValid from 'is-valid-path';
 import fetch from 'node-fetch';
 import fs from 'fs-extra';
 import path from 'path';
@@ -8,6 +7,7 @@ import unzip from 'unzip';
 import chalk from "chalk";
 import validateProjectName from "validate-npm-package-name";
 import rimraf from 'rimraf';
+import editJsonFile from "edit-json-file";
 
 export default class CreateTemplateCommand {
 
@@ -94,8 +94,11 @@ export default class CreateTemplateCommand {
 				resolve();
 			});
 		});
-		
-	
+
+		const file = editJsonFile(path.join(root, 'package.json'));
+		file.set('name', _templateName);
+		file.set('version', '0.0.1');	
+		file.save();
 	}
 
 	checkTemplateName(template: string) {
