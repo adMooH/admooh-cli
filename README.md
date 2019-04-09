@@ -19,7 +19,7 @@ Para criar um template:
 Saiba mais sobre os [templates admooh](https://github.com/adMooH/signage-template)
 
 ```sh
-$ admooh-cli create-template -n {nome do seu template}
+$ admooh create-template -n {nome do seu template}
 ```
 
 | Argumento     | Descrição     |
