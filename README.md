@@ -1,6 +1,6 @@
-# adMooH CLI
 
 [![N|Solid](http://v.fastcdn.co/u/19d828a0/31820341-0-Logo-adMooH-Vertical.png)](https://home.admooh.com/)
+# adMooH CLI
 
 adMooH CLI e uma ferramenta de utilitários para a adMooH.
 
