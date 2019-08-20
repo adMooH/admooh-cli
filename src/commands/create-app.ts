@@ -9,45 +9,45 @@ import validateProjectName from "validate-npm-package-name";
 import rimraf from 'rimraf';
 import editJsonFile from "edit-json-file";
 
-export default class CreateTemplateCommand {
+export default class CreateAppCommand {
 
 	private _fileUtils: FileUtils = new FileUtils();
-	private _repouRL: string = 'https://github.com/adMooH/signage-template-model/archive/master.zip';
-	private _modelFolderName: string = "signage-template-model-master";
+	private _repouRL: string = 'https://github.com/adMooH/admooh-app-model/archive/master.zip';
+	private _modelFolderName: string = "admooh-app-model-master";
 
-	async createTemplate(name?: string, templatePath?: string) {
-		let _templateName = name;
+	async createApp(name?: string, templatePath?: string) {
+		let _appName = name;
 
-		if (_templateName === undefined || _templateName === "") {
+		if (_appName === undefined || _appName === "") {
 			const questions = [
 				{
-					name: 'templateName',
+					name: 'appName',
 					type: 'input',
-					message: 'What\'s your template name ?:',
+					message: 'What\'s your app name ?:',
 					validate: (value: string) => {
 						if (value.length) {
-							if (this.checkTemplateName(_templateName)) {
+							if (this.checkAppName(_appName)) {
 								return true;
 							} else {
-								return 'Please enter a valid template name.';
+								return 'Please enter a valid app name.';
 							}
 
 						} else {
-							return 'Please enter your template name.';
+							return 'Please enter your app name.';
 						}
 					}
 				}
 			];
-			const { templateName } = await inquirer.prompt(questions);
-			_templateName = templateName;
-		} else if(!this.checkTemplateName(_templateName)) {
+			const { templateName: appName } = await inquirer.prompt(questions);
+			_appName = appName;
+		} else if(!this.checkAppName(_appName)) {
 			return ;
 		}
 
-		const root = path.resolve(_templateName);
-		fs.ensureDirSync(_templateName);
+		const root = path.resolve(_appName);
+		fs.ensureDirSync(_appName);
 
-		console.log('Create template in:', chalk.bold(root));
+		console.log('Create App in:', chalk.bold(root));
 		console.log();
 
 		 console.log(chalk.blue("downloading model files..."));
@@ -96,17 +96,17 @@ export default class CreateTemplateCommand {
 		});
 
 		const file = editJsonFile(path.join(root, 'package.json'));
-		file.set('name', _templateName);
+		file.set('name', _appName);
 		file.set('version', '0.0.1');	
 		file.save();
 	}
 
-	checkTemplateName(template: string) {
-		const validationResult = validateProjectName(template);
+	checkAppName(appName: string) {
+		const validationResult = validateProjectName(appName);
 		if (!validationResult.validForNewPackages) {
 		  console.error(
-			`Could not create a template called ${chalk.red(
-			  `"${template}"`
+			`Could not create a app called ${chalk.red(
+			  `"${appName}"`
 			)} because of npm naming restrictions:`
 		  );
 		  return false;

@@ -14,7 +14,7 @@
     "url": "git+https://github.com/adMooH/admooh-cli.git"
   },
   "author": "Ademir Pereira",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/adMooH/admooh-cli/issues"
   },

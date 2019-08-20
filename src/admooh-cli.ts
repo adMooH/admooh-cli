@@ -5,14 +5,14 @@ import minimist from "minimist";
 
 //Commands
 import HelpCommand from "./commands/help-command";
-import CreateTemplateCommand from "./commands/create-template";
+import CreateAppCommand from "./commands/create-app";
 
 
 
 const cliName = "adMooH CLI";
 export default class AdmoohCLI {
 	_helpCommand: HelpCommand = new HelpCommand();
-	_createTemplateCommand: CreateTemplateCommand = new CreateTemplateCommand();
+	_createAppCommand: CreateAppCommand = new CreateAppCommand();
 
 	start() {
 		clear();
@@ -55,11 +55,11 @@ export default class AdmoohCLI {
 		const command = argv._[0] as string;
 		if (command === undefined) return;
 		switch (command.toLowerCase()) {
-			case 'create-template': {
-				const templateName = argv.n as string || argv.name as string || undefined;
-				const templatePath = argv.p as string || argv.path as string || undefined;
+			case 'create-app': {
+				const appName = argv.n as string || argv.name as string || undefined;
+				const appPath = argv.p as string || argv.path as string || undefined;
 
-				this.createTemplateCommand(templateName, templatePath);
+				this.createAppCommand(appName, appPath);
 				break;
 			}
 			default: {
@@ -72,7 +72,7 @@ export default class AdmoohCLI {
 	helpCommad() {
 		this._helpCommand.showHelpScreen();
 	}
-	createTemplateCommand(templateName?: string, templatePath?: string) {
-		this._createTemplateCommand.createTemplate(templateName, templatePath);
+	createAppCommand(appName?: string, appPath?: string) {
+		this._createAppCommand.createApp(appName, appPath);
 	}
 }
