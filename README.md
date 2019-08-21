@@ -15,22 +15,17 @@ $ yarn global add admooh-cli
 
 ## Comandos
 
-Para criar um template:
-Saiba mais sobre os [templates admooh](https://github.com/adMooH/signage-template)
+Para criar um aplicativo:
+Saiba mais sobre os [aplicativos admooh](https://github.com/adMooH/admooh-app-model)
 
 ```sh
-$ admooh create-template -n {nome do seu template}
+$ admooh create-app -n {nome do seu aplicativo}
 ```
 
 | Argumento     | Descrição     |
 | ------------- |:-------------:|
-| -n            | Nome do template |
+| -n            | Nome do aplicativo |
 
-O template será criado na pasta raiz onde o comando foi executado.
+O aplicativo será criado na pasta raiz onde o comando foi executado.
 
-
-License
-----
-ISC
-
-# **May the force be with you!**
+## **May the force be with you!**
