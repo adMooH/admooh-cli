@@ -10,8 +10,7 @@ import rimraf from 'rimraf';
 import editJsonFile from "edit-json-file";
 
 export default class CreateAppCommand {
-
-	private _fileUtils: FileUtils = new FileUtils();
+	
 	private _repouRL: string = 'https://github.com/adMooH/admooh-app-model/archive/master.zip';
 	private _modelFolderName: string = "admooh-app-model-master";
 
@@ -26,7 +25,7 @@ export default class CreateAppCommand {
 					message: 'What\'s your app name ?:',
 					validate: (value: string) => {
 						if (value.length) {
-							if (this.checkAppName(_appName)) {
+							if (this.checkAppName(value)) {
 								return true;
 							} else {
 								return 'Please enter a valid app name.';
@@ -38,7 +37,7 @@ export default class CreateAppCommand {
 					}
 				}
 			];
-			const { templateName: appName } = await inquirer.prompt(questions);
+			const { appName } = await inquirer.prompt(questions);
 			_appName = appName;
 		} else if(!this.checkAppName(_appName)) {
 			return ;
