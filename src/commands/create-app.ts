@@ -98,6 +98,8 @@ export default class CreateAppCommand {
 		file.set('name', _appName);
 		file.set('version', '0.0.1');	
 		file.save();
+
+		console.log(chalk.blue("goto https://github.com/adMooH/admooh-app-model for more information"));
 	}
 
 	checkAppName(appName: string) {

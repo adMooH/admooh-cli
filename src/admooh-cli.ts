@@ -6,12 +6,14 @@ import minimist from "minimist";
 //Commands
 import HelpCommand from "./commands/help-command";
 import CreateAppCommand from "./commands/create-app";
+import VersionCommand from "./commands/version-command";
 
 
 
 const cliName = "adMooH CLI";
 export default class AdmoohCLI {
 	_helpCommand: HelpCommand = new HelpCommand();
+	_versionCommand: VersionCommand = new VersionCommand();
 	_createAppCommand: CreateAppCommand = new CreateAppCommand();
 
 	start() {
@@ -51,6 +53,9 @@ export default class AdmoohCLI {
 		if (argv.help) {
 			this.helpCommad();
 			return;
+		} else if (argv.version) {
+			this.versionCommad();
+			return;
 		}
 		const command = argv._[0] as string;
 		if (command === undefined) return;
@@ -72,6 +77,12 @@ export default class AdmoohCLI {
 	helpCommad() {
 		this._helpCommand.showHelpScreen();
 	}
+
+	versionCommad() {
+		this._versionCommand.showVersionScreen();
+	}
+
+
 	createAppCommand(appName?: string, appPath?: string) {
 		this._createAppCommand.createApp(appName, appPath);
 	}
