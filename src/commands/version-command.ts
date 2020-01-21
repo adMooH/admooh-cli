@@ -5,7 +5,7 @@ import chalk from "chalk";
 export default class VersionCommand {
 	showVersionScreen() {
 		console.log(
-			chalk.blue("1.0.1")
+			chalk.blue("1.0.2")
 		);
 	}
 }

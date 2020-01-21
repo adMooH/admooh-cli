@@ -1,10 +1,12 @@
 {
   "name": "admooh-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "adMooH CLI",
   "main": "index.ts",
   "scripts": {
-    "admooh": "webpack -p && node ./dist/index.js"
+    "build": "webpack -p",
+    "start": "npm run build && node ./dist/index.js",
+    "publish": "npm run build && npm publish . --tag latest"
   },
   "bin": {
     "admooh": "./dist/index.js"
